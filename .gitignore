@@ -7,3 +7,5 @@ build/
 data/
 *.egg
 .env
+node_modules/
+.claude/
