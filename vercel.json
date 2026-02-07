@@ -1,20 +1,10 @@
 {
-  "builds": [
-    {
-      "src": "frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
-    },
-    {
-      "src": "api/index.py",
-      "use": "@vercel/python"
-    }
-  ],
-  "routes": [
-    { "src": "/api/(.*)", "dest": "api/index.py" },
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "frontend/index.html" }
+  "framework": null,
+  "installCommand": "cd frontend && npm install",
+  "buildCommand": "cd frontend && npx vite build",
+  "outputDirectory": "frontend/dist",
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/index" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
